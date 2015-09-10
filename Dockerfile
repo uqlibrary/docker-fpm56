@@ -28,6 +28,7 @@ RUN \
   yum clean all
 
 COPY etc/php-fpm.d/www.conf /etc/php-fpm.d/www.conf
+COPY etc/php.d/15-xdebug.ini /etc/php.d/15-xdebug.ini
 
 RUN rm -f /etc/php.d/20-mssql.ini && \
     rm -f /etc/php.d/30-pdo_dblib.ini && \
