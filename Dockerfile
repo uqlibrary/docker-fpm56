@@ -1,4 +1,4 @@
-FROM uqlibrary/docker-base:1
+FROM uqlibrary/docker-base:2
 
 RUN rpm -Uvh http://yum.newrelic.com/pub/newrelic/el5/x86_64/newrelic-repo-5-3.noarch.rpm
 
@@ -41,5 +41,7 @@ RUN rm -f /etc/php.d/20-mssql.ini && \
     usermod -u 1000 nobody
 
 EXPOSE 9000
+
+ENV NSS_SDB_USE_CACHE YES
 
 ENTRYPOINT ["/usr/sbin/php-fpm", "--nodaemonize"]
