@@ -42,4 +42,6 @@ RUN rm -f /etc/php.d/20-mssql.ini && \
 
 EXPOSE 9000
 
+ENV NSS_SDB_USE_CACHE YES
+
 ENTRYPOINT ["/usr/sbin/php-fpm", "--nodaemonize"]
