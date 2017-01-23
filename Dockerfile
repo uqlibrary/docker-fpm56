@@ -1,4 +1,4 @@
-FROM uqlibrary/docker-base:7
+FROM uqlibrary/docker-base:11
 
 RUN rpm -Uvh http://yum.newrelic.com/pub/newrelic/el5/x86_64/newrelic-repo-5-3.noarch.rpm
 
