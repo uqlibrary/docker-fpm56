@@ -1,4 +1,4 @@
-FROM uqlibrary/docker-base:11
+FROM uqlibrary/docker-base:12
 
 RUN rpm -Uvh http://yum.newrelic.com/pub/newrelic/el5/x86_64/newrelic-repo-5-3.noarch.rpm
 
@@ -38,7 +38,7 @@ RUN rm -f /etc/php.d/20-mssql.ini && \
     sed -i "s/display_errors =.*/display_errors = Off/" /etc/php.ini && \
     sed -i "s/upload_max_filesize = 2M/upload_max_filesize = 30M/" /etc/php.ini && \
     sed -i -e "s/;daemonize\s*=\s*yes/daemonize = no/g" /etc/php-fpm.conf && \
-    sed -i "s/error_log =.*/;error_log/" /etc/php-fpm.conf && \
+    sed -i "s/error_log =.*/error_log = \/proc\/self\/fd\/2/" /etc/php-fpm.conf && \
     usermod -u 1000 nobody
 
 EXPOSE 9000
